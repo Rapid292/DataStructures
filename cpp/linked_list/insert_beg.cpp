@@ -8,29 +8,31 @@ public:
    Node *next;
 };
 
-void insertBeg(int e, Node **head)
+Node *head;
+
+void insertBeg(int e)
 {
    Node *temp;
    temp = new Node();
    temp->data = e;
-   temp->next = *head;
-   *head = temp;
+   temp->next = head;
+   head = temp;
 }
 
-void printList(Node *head)
+void printList()
 {
    cout << "Your list is: ";
-   while (head != NULL)
+   Node *temp1 = head;
+   while (temp1 != NULL)
    {
-      cout << head->data << " ";
-      head = head->next;
+      cout << temp1->data << " ";
+      temp1 = temp1->next;
    }
    cout << "\n";
 }
 
 int main()
 {
-   Node *head;
    head = NULL;
    int e, n;
    cout << "Number of elements ?" << endl;
@@ -39,8 +41,8 @@ int main()
    {
       cout << "Insert element: " << endl;
       cin >> e;
-      insertBeg(e, &head);
-      printList(head);
+      insertBeg(e);
+      printList();
    }
 
    return 0;
