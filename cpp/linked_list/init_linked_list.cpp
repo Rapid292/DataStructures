@@ -8,6 +8,25 @@ public:
    Node *next;
 };
 
+void insert(int x, Node *head)
+{
+
+   Node *temp;
+   temp->data = x;
+   temp->next = head;
+
+   head = temp;
+}
+
+void print(Node *head)
+{
+   while (head != NULL)
+   {
+      cout << head->data << endl;
+      head = head->next;
+   }
+}
+
 int main()
 {
    Node *head = NULL;
@@ -24,6 +43,8 @@ int main()
    second->data = 2;
    third->next = NULL;
    third->data = 3;
+
+   print(head);
 
    return 0;
 }
